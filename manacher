@@ -1,0 +1,41 @@
+string process(string s)
+{
+    if (s.empty()) return "^$";
+
+    string res = "^";
+
+    for (char v : s) res = res + '#' + v;
+
+    res += "#$";
+
+    return res;
+}
+
+string manacher(string s)
+{
+    string T = process(s);
+    int n = T.length(), c = 0, r = 0, ans = 0, idx = 0;
+    int *P = new int[n];
+
+    for (int i = 1; i < n - 1; ++i)
+    {
+        int cur = 2 * c - i; // equals to i' = c - (i-c)
+
+        P[i] = (r > i) ? min(r - i, P[cur]) : 0;
+
+        // Attempt to expand palindrome centered at i
+        while (T[i + 1 + P[i]] == T[i - 1 - P[i]]) P[i]++;
+
+        // If palindrome centered at i expand past r,
+        // adjust center based on expanded palindrome.
+        if (i + P[i] > r) c = i, r = i + P[i];
+    }
+
+    // Find the maximum element in P.
+    for (int i = 1; i < n - 1; ++i)
+        if (P[i] > ans) ans = P[i], idx = i;
+
+    delete[] P;
+
+    return s.substr((idx - 1 - ans) / 2, ans);
+}
