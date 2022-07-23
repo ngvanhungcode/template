@@ -1,0 +1,26 @@
+int anc(int p) 
+{
+    if (par[p] == p) return p;
+    else return par[p] = anc(par[p]);
+}
+
+void join(int p, int q) { par[anc(p)] = anc(q); }
+
+// #define ii pair<int, int> 
+// #define iii pair<int, ii>
+
+// iii edge[..] : {w, {u, v}}
+
+int kruskal()
+{
+    for (int i = 1; i <= n; i++) par[i] = i;
+    
+    sort(edge.begin(), edge.end());
+    
+    int ans = 0;
+    
+    for (auto it : edge) 
+        if (anc(it.se.fi) != anc(it.se.se)) join(it.se.fi, it.se.se), ans += it.fi;
+        
+    return ans;
+}
