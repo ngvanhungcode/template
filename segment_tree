@@ -1,0 +1,48 @@
+void build(int idx, int l, int r)
+{
+  if (l == r) 
+  {
+    // end
+    return;
+  }
+  
+  int mid = (l + r) >> 1;
+  
+  build(idx << 1, l, mid);
+  build(idx << 1 | 1, mid + 1, r);
+  
+  //join
+}
+
+void update(int idx, int l, int r)
+{
+  // stopping condition
+  
+  if (l == r) 
+  {
+    // end
+    return;
+  }
+  
+  int mid = (l + r) >> 1;
+  
+  update(idx << 1, l, mid);
+  update(idx << 1 | 1, mid + 1, r);
+  
+  // join after update
+}
+
+void get(int idx, int l, int r)
+{
+  // stopping condition
+  
+  if ()
+  {
+    return;
+  }
+  
+  int mid = (l + r) >> 1;
+ 
+  // return join(idx << 1 and idx << 1 | 1)
+}
+
