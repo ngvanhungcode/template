@@ -1,0 +1,57 @@
+struct TrieNode
+{
+    TrieNode* child[26];
+    int cnt;
+    TrieNode()
+    {
+        for (int i = 0; i < 26; ++i) child[i] = NULL;
+        cnt = 0;
+    }
+} *root = new TrieNode();
+
+void Insert(string s)
+{
+    TrieNode* p = root;
+
+    for (char v : s)
+    {
+        int nxt = v - 'a';
+
+        if (p->child[nxt] == NULL) p->child[nxt] = new TrieNode();
+
+        p = p->child[nxt];
+    }
+
+    ++p->cnt;
+}
+
+bool Find(string s)
+{
+    TrieNode* p = root;
+    for (char v : s)
+    {
+        int nxt = v - 'a';
+
+        if (p->child[nxt] == NULL) return false;
+
+        p = p->child[nxt];
+    }
+
+    return p->cnt > 0;
+}
+
+void Delete(string s)
+{
+    TrieNode* p = root;
+
+    for (char v : s)
+    {
+        int nxt = v - 'a';
+
+        if (p->child[nxt] == NULL) return;
+
+        p = p->child[nxt];
+    }
+
+    if (p->cnt > 0) p->cnt--;
+}
