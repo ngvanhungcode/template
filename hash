@@ -1,0 +1,19 @@
+// #define int long long 
+// const int mod = 1e9 + 7;
+// const int base = 311;
+
+void process()
+{
+    Pow[0] = 1;
+    for (int i = 1; i <= maxlen; ++i) Pow[i] = (Pow[i - 1] * base) % mod; 
+}
+
+void hash_build(string s, int &h) 
+{
+    for (int i = 0; i < s.length(); ++i) h[i] = (h[i - 1] * base + s[i]) % mod;
+}
+
+int get_hash(int l,int r, int &h) 
+{
+    return (h[r] - h[l - 1] * Pow[j - i + 1] + mod * mod) % mod;
+}
