@@ -1,0 +1,82 @@
+// sun's code
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <iostream>
+#include <vector>
+#include <map>
+#include <queue>
+#include <cstring>
+#include <iomanip>
+#include <algorithm>
+#include <stack>
+#include <deque>
+#include <unordered_map>
+#include <unordered_set>
+#include <set>
+#include <bitset>
+#include <math.h>
+#include <cstdio>
+#include <ctime>
+#include <cstdlib>
+#include <string>
+#include <fstream>
+#include <iterator>
+
+using namespace std;
+
+#define filename "text"
+
+#define int long long
+#define mask(i) (1ll<<(i))
+#define ii pair<int, int>
+#define fi first
+#define se second
+#define iii pair<int, ii>
+#define vii vector<ii>
+#define vi vector<int>
+#define pb push_back
+#define mp make_pair
+#define mi map<int,int>
+#define reset(x,val) memset((x),(val),sizeof(x))
+#define ll long long
+#define ull unsigned long long
+#define ld long double
+#define all(x) x.begin(), x.end()
+#define endl '\n'
+#define turn_on(i,m) (m |= (1LL << i))
+#define turn_off(i,m) (m &= ~(1LL << i))
+#define getbit(i, m) ((m >> i) & 1)
+#define qii queue<ii>
+#define pdd pair<double, double>
+
+const int maxn = 2e5 + 123;
+const int INF = 1e18;
+const int mod = 1e9 + 7;
+const int base = 311;
+const int N = 1e6 + 123;
+
+template <class T> inline T sqr(T x) { return x * x; };
+template <class T> inline bool maximize(T& a, T b) { return (a < b) ? a = b, true : false; }
+template <class T> inline bool minimize(T& a, T b) { return (a > b) ? a = b, true : false; }
+template <class T> inline int Power(T x, int y) { if (!y) return 1; if (y & 1) return sqr(Power(x, y / 2)) % mod * x % mod; return sqr(Power(x, y / 2)) % mod; }
+
+inline int gcd(int x, int y) { int r = 0; while (y > 0) { r = x % y; x = y; y = r; } return x; }
+inline int lcm(int x, int y) { return x * y / gcd(x, y); }
+
+int dx[] = { -1,0,1,0 };
+int dy[] = { 0,1,0,-1 };
+
+int32_t main()
+{
+	ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
+#ifndef ONLINE_JUDGE
+	freopen(filename".INP", "r", stdin);
+	freopen(filename".OUT", "w", stdout);
+#else
+	// online submission
+#endif
+
+	return 0;
+}
