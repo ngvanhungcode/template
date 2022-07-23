@@ -1,0 +1,16 @@
+//#define mask(i) (1ll<<(i))
+
+void build_rmq()
+{
+	for (int i = 1; i <= n; ++i) rmq[i][0] = a[i];
+
+	for (int k = 1; mask(k) <= n; ++k)
+		for (int i = 1; i + mask(k) - 1 <= n; i++) rmq[i][k] = max(rmq[i][k - 1], rmq[i + mask(k - 1)][k - 1]);
+}
+
+int get(int l, int r)
+{
+	int k = log2(r - l + 1);
+
+	return max(rmq[l][k], rmq[r - mask(k) + 1][k]);
+}
