@@ -8,12 +8,12 @@ void process()
     for (int i = 1; i <= maxlen; ++i) Pow[i] = (Pow[i - 1] * base) % mod; 
 }
 
-void hash_build(string s, int &h) 
+void hash_build(string s) 
 {
     for (int i = 0; i < s.length(); ++i) h[i] = (h[i - 1] * base + s[i]) % mod;
 }
 
-int get_hash(int l,int r, int &h) 
+int get_hash(int l,int r) 
 {
     return (h[r] - h[l - 1] * Pow[j - i + 1] + mod * mod) % mod;
 }
