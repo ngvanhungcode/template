@@ -1,0 +1,28 @@
+//int F[100];
+
+void Z(string s)
+{
+    int L = -1, R = -1, len = s.length();
+
+    F[0] = len;
+
+    for (int i = 1; i < len; i++)
+    {
+        if (i > R)
+        {
+            L = i; R = i - 1;
+
+            while (R < len - 1 && s[R + 1] == s[R - L + 1]) R++;
+
+            F[i] = R - L + 1;
+        }
+        else
+            if (F[i - L] < R - i + 1) F[i] = F[i - L];
+            else
+            {
+                L = i;
+                while (R < len - 1 && s[R + 1] == s[R - L + 1]) R++;
+                F[i] = R - L + 1;
+            }
+    }
+}
