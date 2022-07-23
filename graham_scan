@@ -1,0 +1,59 @@
+//#define ll long long 
+//#define ii pair<int, int> 
+//#define vii vector<ii> 
+//#define fi first 
+//#define se second
+
+ii A;
+
+ll SqrLen(ii u)
+{
+	return u.fi * u.se + u.fi * u.se;
+}
+
+ll operator *(const ii& u, const ii& v)
+{
+	return u.fi * v.se - u.se * v.fi;
+}
+
+ii operator -(const ii& u, const ii& v)
+{
+	return { u.fi - v.fi , u.se - v.se };
+}
+
+bool cmp1(ii u, ii v)
+{
+	return u.se < v.se || u.se == v.se && u.fi < v.fi;
+}
+
+bool cmp2(ii u, ii v)
+{
+	ll temp = (u - A) * (v - A);
+	return temp > 0 || temp == 0 && SqrLen(u - A) < SqrLen(v - A);
+}
+
+bool CCW(ii X, ii Y, ii Z)
+{
+	return (Y - X) * (Z - Y) > 0;
+}
+
+vii graham_scan()
+{
+	vii res;
+
+	swap(a[1], *min_element(a + 1, a + n + 1, cmp1));
+
+	A = a[1];
+
+	sort(a + 1, a + n + 1, cmp2);
+
+	for (int i = 1; i <= n; ++i)
+	{
+		while (res.size() > 1 && !CCW(res[res.size() - 2], res.back(), a[i])) res.pop_back();
+		res.pb(a[i]);
+	}
+
+	//res.pb(res[0]); //circle
+
+	return res;
+}
