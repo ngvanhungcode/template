@@ -46,7 +46,7 @@ using namespace std;
 #define ull unsigned long long
 #define ld long double
 #define all(x) x.begin(), x.end()
-#define endl '\n'
+#define endl "\n"
 #define turn_on(i,m) (m |= (1LL << i))
 #define turn_off(i,m) (m &= ~(1LL << i))
 #define getbit(i, m) ((m >> i) & 1)
