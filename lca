@@ -10,7 +10,7 @@ void build(int i, int p)
 	for (int k = 1; k < logn; ++k) dp[i][k] = dp[dp[i][k - 1]][k - 1];
 
 	for (int v : Edge[i])
-		if (v != p) built(v, i);
+		if (v != p) build(v, i);
 }
 
 int LCA(int u, int v)
