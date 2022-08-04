@@ -1,4 +1,4 @@
-#define logn = ?
+const int logn = ?
 
 // build(root, par)
 void build(int i, int p)
