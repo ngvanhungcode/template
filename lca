@@ -1,4 +1,9 @@
+//#define vi vector<int> 
+//const int maxn = ..;
+
 const int logn = ?
+int dp[maxn][logn], d[maxn];
+vi Edge[maxn];
 
 // build(root, par)
 void build(int i, int p)
