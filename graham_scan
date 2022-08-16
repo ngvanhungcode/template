@@ -8,7 +8,7 @@ ii A;
 
 ll SqrLen(ii u)
 {
-	return u.fi * u.se + u.fi * u.se;
+	return u.fi * u.fi + u.se * u.se;
 }
 
 ll operator *(const ii& u, const ii& v)
@@ -23,13 +23,13 @@ ii operator -(const ii& u, const ii& v)
 
 bool cmp1(ii u, ii v)
 {
-	return u.se < v.se || u.se == v.se && u.fi < v.fi;
+	return u.se < v.se || (u.se == v.se && u.fi < v.fi);
 }
 
 bool cmp2(ii u, ii v)
 {
 	ll temp = (u - A) * (v - A);
-	return temp > 0 || temp == 0 && SqrLen(u - A) < SqrLen(v - A);
+	return temp > 0 || (temp == 0 && SqrLen(u - A) < SqrLen(v - A));
 }
 
 bool CCW(ii X, ii Y, ii Z)
@@ -45,7 +45,7 @@ vii graham_scan()
 
 	A = a[1];
 
-	sort(a + 1, a + n + 1, cmp2);
+	sort(a + 2, a + n + 1, cmp2);
 
 	for (int i = 1; i <= n; ++i)
 	{
