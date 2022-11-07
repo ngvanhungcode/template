@@ -76,6 +76,10 @@ inline int lcm(int x, int y) { return x * y / gcd(x, y); }
 int dx[] = { -1,0,1,0 };
 int dy[] = { 0,1,0,-1 };
 
+void solve()
+{
+}
+
 int32_t main()
 {
 	ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
