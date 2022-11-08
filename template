@@ -97,7 +97,7 @@ int32_t main()
 	// online submission
 #endif
 	
-	if (1) solve(); else 
+	if (true) solve(); else 
 	{
 	 	int t;
 		cin >> t;
